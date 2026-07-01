@@ -1,0 +1,9 @@
+# KIWI build output
+build/
+*.iso
+*.packages
+*.verified
+*.raw
+*.qcow2
+*.changes
+.kiwi_lock
