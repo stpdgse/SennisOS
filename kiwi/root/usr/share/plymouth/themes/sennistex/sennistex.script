@@ -1,0 +1,11 @@
+Window.SetBackgroundTopColor(0.05, 0.05, 0.05);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+bird.image = Image("bird.png");
+bird.sprite = Sprite(bird.image);
+bird.sprite.SetX(Window.GetWidth() / 2 - bird.image.GetWidth() / 2);
+bird.sprite.SetY(Window.GetHeight() / 2 - bird.image.GetHeight() / 2);
+
+fun refresh_callback() {
+}
+Plymouth.SetRefreshFunction(refresh_callback);

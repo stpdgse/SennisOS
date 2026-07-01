@@ -1,0 +1,15 @@
+{
+    "KPackageStructure": "Wallpaper",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "valexapi@gmail.com",
+                "Name": "Sennis Tex OS Team"
+            }
+        ],
+        "Id": "SennisTex",
+        "License": "CC0",
+        "Name": "Sennis Tex OS",
+        "Description": "The one true Sennis Pex bird."
+    }
+}

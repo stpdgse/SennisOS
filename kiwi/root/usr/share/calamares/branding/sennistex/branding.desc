@@ -1,0 +1,29 @@
+---
+componentName: sennistex
+
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+
+strings:
+    productName:         "Sennis Tex OS"
+    shortProductName:    "SennisOS"
+    version:              "0.1.0"
+    shortVersion:         "0.1.0"
+    versionedName:        "Sennis Tex OS 0.1.0"
+    shortVersionedName:   "SennisOS 0.1.0"
+    bootloaderEntryName:  "SennisTexOS"
+    productUrl:           "https://github.com/stpdgse/SennisOS"
+    supportUrl:           "https://github.com/stpdgse/SennisOS/issues"
+    releaseNotesUrl:      "https://github.com/stpdgse/SennisOS"
+
+images:
+    productLogo:          "logo.png"
+    productIcon:           "logo.png"
+    productWelcome:        "welcome.png"
+
+slideshow:                "show.qml"
+
+style:
+   sidebarBackground:     "#101010"
+   sidebarText:            "#ffffff"
+   sidebarTextSelect:      "#f4e04d"

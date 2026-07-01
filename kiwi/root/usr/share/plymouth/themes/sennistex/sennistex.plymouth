@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Sennis Tex OS
+Description=Sennis Tex OS boot splash - the real bird, front and center
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/sennistex
+ScriptFile=/usr/share/plymouth/themes/sennistex/sennistex.script
