@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Install SennisOS
+Comment=Install Sennis Tex OS to disk
+Exec=sudo /usr/bin/calamares
+Icon=calamares
+Terminal=false
+Categories=System;
+X-KDE-SubstituteUID=false

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.5" name="SennisOS">
+    <description type="system">
+        <author>Sennis Tex OS Team</author>
+        <contact>valexapi@gmail.com</contact>
+        <specification>SennisOS (Sennis Tex OS) - a comedic openSUSE Tumbleweed + KDE Plasma respin</specification>
+    </description>
+    <preferences>
+        <version>0.1.0</version>
+        <packagemanager>zypper</packagemanager>
+        <locale>en_US</locale>
+        <keytable>us</keytable>
+        <timezone>UTC</timezone>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <type image="iso" flags="overlay" firmware="efi" hybridpersistent_filesystem="ext4" hybridpersistent="true">
+            <bootloader name="grub2" console="gfxterm" timeout="10"/>
+        </type>
+    </preferences>
+    <users>
+        <user password="$6$bIyOML/L1fyv7sh8$rA5SY0J2PvIP643JFYy1iapda78X7ySYAjzNoUtHaoIQLrlg/rulbYOjwD0BFnErJvE6scQPN0GRqASeXbrnf0" home="/home/sennis" name="sennis" groups="wheel,video,audio,cdrom" shell="/bin/bash"/>
+    </users>
+
+    <repository type="rpm-md" alias="repo-oss" priority="99">
+        <source path="http://download.opensuse.org/tumbleweed/repo/oss/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo-non-oss" priority="99">
+        <source path="http://download.opensuse.org/tumbleweed/repo/non-oss/"/>
+    </repository>
+    <repository type="rpm-md" alias="repo-update" priority="99">
+        <source path="http://download.opensuse.org/update/tumbleweed/"/>
+    </repository>
+    <repository type="rpm-md" alias="packman" priority="90">
+        <source path="http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/"/>
+    </repository>
+
+    <packages type="bootstrap">
+        <package name="zypper"/>
+        <package name="udev"/>
+        <package name="filesystem"/>
+        <package name="glibc-locale"/>
+        <package name="cracklib-dict-full"/>
+        <package name="ca-certificates"/>
+        <package name="ca-certificates-mozilla"/>
+    </packages>
+
+    <packages type="image">
+        <!-- core system -->
+        <package name="patterns-openSUSE-base"/>
+        <package name="kernel-default"/>
+        <package name="systemd"/>
+        <package name="NetworkManager"/>
+        <package name="sudo"/>
+        <package name="dracut-kiwi-live"/>
+
+        <!-- bootloader / splash (placeholder theme, replaced with SennisOS branding later) -->
+        <package name="grub2"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="grub2-i386-pc"/>
+        <package name="shim"/>
+        <package name="plymouth"/>
+        <package name="plymouth-theme-bgrt"/>
+
+        <!-- filesystem tooling (target disk uses Btrfs + Snapper, set up by Calamares) -->
+        <package name="btrfsprogs"/>
+        <package name="snapper"/>
+        <package name="yast2-snapper"/>
+
+        <!-- desktop -->
+        <package name="patterns-kde-kde_plasma"/>
+        <package name="patterns-kde-kde_office"/>
+        <package name="patterns-kde-kde_multimedia"/>
+        <package name="patterns-kde-kde_internet"/>
+        <package name="sddm"/>
+
+        <!-- installer -->
+        <package name="calamares"/>
+
+        <!-- curated everyday apps -->
+        <package name="MozillaFirefox"/>
+        <package name="MozillaFirefox-translations-common"/>
+
+        <!-- codecs via Packman -->
+        <package name="ffmpeg"/>
+        <package name="gstreamer-plugins-good"/>
+        <package name="gstreamer-plugins-bad"/>
+        <package name="gstreamer-plugins-ugly"/>
+        <package name="gstreamer-plugins-libav"/>
+
+        <!-- utilities -->
+        <package name="vim"/>
+        <package name="nano"/>
+        <package name="git"/>
+        <package name="curl"/>
+        <package name="wget"/>
+        <package name="tar"/>
+        <package name="which"/>
+        <package name="less"/>
+        <package name="bash-completion"/>
+        <package name="timezone"/>
+        <package name="iputils"/>
+        <package name="openssh"/>
+    </packages>
+</image>

@@ -1,0 +1,11 @@
+NAME="Sennis Tex OS"
+ID=sennisos
+ID_LIKE=suse opensuse
+VERSION="0.1.0"
+VERSION_ID="0.1.0"
+PRETTY_NAME="Sennis Tex OS 0.1.0"
+ANSI_COLOR="1;33"
+CPE_NAME="cpe:/o:sennisos:sennisos:0.1.0"
+BUG_REPORT_URL="https://github.com/stpdgse/SennisOS/issues"
+HOME_URL="https://github.com/stpdgse/SennisOS"
+LOGO=sennistex-logo
