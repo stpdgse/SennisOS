@@ -1,1 +1,17 @@
-kiwi/** text eol=lf
+kiwi/**.sh text eol=lf
+kiwi/**.xml text eol=lf
+kiwi/**.conf text eol=lf
+kiwi/**.conf.user text eol=lf
+kiwi/**.desc text eol=lf
+kiwi/**.qml text eol=lf
+kiwi/**.json text eol=lf
+kiwi/**.plymouth text eol=lf
+kiwi/**.script text eol=lf
+kiwi/root/etc/** text eol=lf
+
+kiwi/**.png binary
+kiwi/**.jpg binary
+kiwi/**.jpeg binary
+Assets/**.jpg binary
+Assets/**.jpeg binary
+Assets/**.png binary
