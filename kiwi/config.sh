@@ -1,19 +1,29 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 test -f /.kconfig && . /.kconfig
 test -f /.profile && . /.profile
 
 echo "Configuring SennisOS live image..."
 
-baseCleanMount
 suseImportBuildKey
 
 systemctl enable NetworkManager.service
-systemctl enable sddm.service
+systemctl enable sddm.service || true
 systemctl enable sshd.service
 
+# No sshd-gen-keys-start unit in this image, so pre-generate host keys
+# at build time (otherwise sshd fails to start entirely, no host keys).
+ssh-keygen -A
+
 chmod +x /etc/skel/Desktop/*.desktop || true
+
+# glibc's vendor default nsswitch.conf isn't being materialized to /etc
+# during this build (root cause under investigation) -- without it NSS
+# lookups can misbehave, so guarantee it exists.
+if [ ! -f /etc/nsswitch.conf ] && [ -f /usr/etc/nsswitch.conf ]; then
+    cp /usr/etc/nsswitch.conf /etc/nsswitch.conf
+fi
 
 # Point Calamares at the SennisOS branding component (the real bird, everywhere)
 if [ -f /etc/calamares/settings.conf ]; then
@@ -30,8 +40,6 @@ if [ -f /etc/default/grub ]; then
 fi
 
 baseStripUnusedLibs
-baseStripUnusedTools
-baseStripDocs
-baseStripLocales -k en_US -k en
+baseStripLocales en_US en
 
 exit 0

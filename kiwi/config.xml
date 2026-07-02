@@ -63,7 +63,7 @@
         <package name="grub2-i386-pc"/>
         <package name="shim"/>
         <package name="plymouth"/>
-        <package name="plymouth-theme-bgrt"/>
+        <package name="plymouth-plugin-script"/>
 
         <!-- filesystem tooling (target disk uses Btrfs + Snapper, set up by Calamares) -->
         <package name="btrfsprogs"/>
@@ -72,6 +72,7 @@
 
         <!-- desktop -->
         <package name="patterns-kde-kde_plasma"/>
+        <package name="plasma6-session-x11"/>
         <package name="patterns-kde-kde_office"/>
         <package name="patterns-kde-kde_multimedia"/>
         <package name="patterns-kde-kde_internet"/>
