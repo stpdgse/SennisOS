@@ -37,6 +37,16 @@ if [ -f /etc/default/grub ]; then
     else
         echo 'GRUB_BACKGROUND="/boot/grub2/sennistex-bg.png"' >> /etc/default/grub
     fi
+
+    # RTX 20xx/30xx (Turing/Ampere) cards whose exact chip die is missing GSP
+    # firmware in the current kernel-firmware-nvidia snapshot (e.g. GA106/RTX
+    # 3060) fail to init display via nouveau's default GSP path -- fall back
+    # to the older non-GSP path. Carry this into the installed system too.
+    if grep -q '^GRUB_CMDLINE_LINUX_DEFAULT=' /etc/default/grub; then
+        sed -i 's#^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"#GRUB_CMDLINE_LINUX_DEFAULT="\1 nouveau.config=NvGspRm=0"#' /etc/default/grub
+    else
+        echo 'GRUB_CMDLINE_LINUX_DEFAULT="nouveau.config=NvGspRm=0"' >> /etc/default/grub
+    fi
 fi
 
 baseStripUnusedLibs

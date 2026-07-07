@@ -15,7 +15,7 @@
         <rpm-excludedocs>true</rpm-excludedocs>
         <bootsplash-theme>sennistex</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
-        <type image="iso" flags="overlay" firmware="efi" hybridpersistent_filesystem="ext4" hybridpersistent="true">
+        <type image="iso" flags="overlay" firmware="efi" hybridpersistent_filesystem="ext4" hybridpersistent="true" kernelcmdline="nouveau.config=NvGspRm=0">
             <bootloader name="grub2" console="gfxterm" timeout="10"/>
         </type>
     </preferences>
