@@ -83,6 +83,14 @@
              subpackage and was missing entirely, causing SDDM/Xorg to crash-loop
              on NVIDIA hardware -->
         <package name="Mesa-dri-nouveau"/>
+        <!-- No kernel-firmware-* package was pulled in implicitly by anything
+             above -- confirmed zero firmware for GPUs (incl. the NVIDIA GSP
+             firmware Turing/RTX 20xx+ needs just to initialize display output,
+             which is the likely actual cause of the crash loop), WiFi, Bluetooth,
+             sound codecs, etc. This is a live distro meant to boot on arbitrary
+             real hardware, so pull in the full firmware set rather than only
+             the one vendor we happened to test on. -->
+        <package name="kernel-firmware-all"/>
 
         <!-- installer -->
         <package name="calamares"/>
